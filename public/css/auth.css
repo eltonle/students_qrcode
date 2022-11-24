@@ -1,0 +1,39 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* height: 100vh; */
+}
+.containerr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+.name {
+    font-size: 25px;
+    font-weight: bold;
+}
+.color1 {
+    font-size: 25px;
+    color: #ff3d00;
+    font-weight: bold;
+}
+.color2 {
+    font-size: 25px;
+    color: #212121;
+    font-weight: bold;
+}
+i {
+    font-size: 70px !important;
+    padding: 10px;
+    color: #008720;
+}
+.filiere {
+    font-size: 25px;
+    font-weight: bold;
+}
+.date {
+    font-size: 16px;
+}
