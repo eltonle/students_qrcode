@@ -26,7 +26,7 @@
                 <p> <span class="name">Mr.{{ $result->name }}</span> a suivi avec succès la formation en <span
                         class="filiere">{{$result->formation->name}}</span> allant du <span class="date">{{
                         $result->section->name }}</span>
-                    au sein du groupe <span class="color1">LocalHost</span> <span class="color2">Academic</span> .</p>
+                    au sein du groupe <span class="color1">LocalHost</span> <span class="color2">Academy</span> .</p>
             </div>
         </div>
     </div>

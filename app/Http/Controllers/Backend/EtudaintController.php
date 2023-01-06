@@ -137,51 +137,20 @@ class EtudaintController extends Controller
     public function update(Request $request, $id)
     {
          // dd($request);
-         $input = $request->all();
+         $etudiant = Etudiant::find($id);
 
-         //save data to database
-         $etudiant = new Etudiant();
          $etudiant->name = $request->name;
          $etudiant->prenom = $request->prenom;
          $etudiant->email = $request->email;
          $etudiant->phone = $request->phone;
-         $etudiant->qr_code = "qrcode";
+        //  $etudiant->qr_code = "qrcode";
          $etudiant->formation_id = $request->formation_id;
          $etudiant->section_id = $request->section_id;
          $etudiant->mention_id = $request->mention_id;
          $etudiant->created_by = 1;
          $etudiant->save();
 
-        //generate qrcode 
-        // save qrcode image in our folder on this site
-       // 2. On upload l'image dans "/storage/app/public/posts"
-       // $chemin_image = $request->picture->store("posts");
-         $file = 'generated_qrcodes/'.$etudiant->id.'png';
-          $img = time() . '.png';
-           $newQrcode = QrCode::size(200)
-                       ->format('png')
-                       ->generate($etudiant->id);
-                       $output_file = '/public/' . $img;
-                       Storage::disk('local')->put($output_file, $newQrcode);
-           // $image = QrCode::format('png')
-           //      ->size(200)
-           //      ->generate('A simple example of QR code!');
-           //     $output_file = '/img/qr-code/img-' . time() . '.png';
-           //     Storage::disk('local')->put($output_file, $image);
-
-         if ($newQrcode) {
-             $input['qr_code']=$img;  
-             //update database
-             Etudiant::where('id',$etudiant->id)
-                      ->update([
-                       'qr_code'=>$input['qr_code']
-                   ]); 
-
-               return redirect()->route("etudiants.index")->with('message','Data saved successfully');
-         }else{
-           return redirect()->route("etudiants.index")->with('error','qrcode failed to save successfully');
-   
-         }
+        
         return redirect()->route('etudiants.index')->with('info','Data Updated successffully!');
    
     }
